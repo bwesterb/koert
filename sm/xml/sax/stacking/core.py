@@ -168,7 +168,7 @@ class FractionSH(CharactersSH):
         exp = -(len(n) - 1)
         absd = d.lstrip("-")
         signd = len(d) - len(absd)
-        return Decimal((signd, map(int, absd), exp))
+        return Decimal((signd, [int(x) for x in absd], exp))
 
 
 class PrintSH(SH):

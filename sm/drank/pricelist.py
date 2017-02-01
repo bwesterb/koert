@@ -66,7 +66,7 @@ class PriceListDir:
             self.pricelists[bf.name] = bf
         if len(errors) > 0:
             warn("Failed to load some pricelists: \n\t%s"
-                 % "\n\t".join(map(repr, errors)))
+                 % "\n\t".join(repr(x) for x in errors))
 
     def _load_pricelist(self, fn, comps):
         path = ospath.join(self.path, fn)

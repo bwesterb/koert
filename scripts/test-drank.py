@@ -33,7 +33,7 @@ def check_pricelists(args, bd):
     print("")
     print(' -  --   ---     Checking Pricelists     ---   --  - ')
     print("")
-    print("   found pricelists: %s" % ", ".join(map(str, pls)))
+    print("   found pricelists: %s" % ", ".join(str(x) for x in pls))
     print("")
     print("")
 
@@ -54,7 +54,7 @@ def check_pricelists(args, bd):
             missing[pl].sort(cmp=_cmp)
             print("%s" % (pl,))
             print("")
-            print(", ".join(map(str, missing[pl])))
+            print(", ".join(str(x) for x in  missing[pl]))
             print("")
         print("")
         print("")
@@ -99,7 +99,7 @@ def check_barforms(args, bd):
 
 
 def check_barforms_numbering(args, bd, barforms, codes):
-    intcodes = map(int, barforms.keys())
+    intcodes = [int(x) for x in barforms.keys()]
     m = min(intcodes)
     M = max(intcodes)
     print("Codes range from %s to %s." % (m, M))

@@ -11,7 +11,7 @@ def parse_amount(s=None, obj=None):
     if s is None:
         return Decimal(0)
     term_strs = s.split("+")
-    return sum(map(lambda ts: parse_amount_term(ts, obj), term_strs))
+    return sum(parse_amount_term(ts, obj) for ts in  term_strs)
 
 
 def parse_amount_term(t, obj):

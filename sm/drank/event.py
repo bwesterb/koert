@@ -178,9 +178,8 @@ class EventDir:
             end_idx = idcs[n + 1]
             start_ic = self.events[dates[start_idx]].invcount
             end_ic = self.events[dates[end_idx]].invcount
-            p_idcs = range(start_idx, end_idx)
-            p_events = map(lambda idx: self.events[dates[idx]],
-                           p_idcs)
+            p_events = [self.events[dates[idx]]
+                        for idx in range(start_idx, end_idx)]
             periods[n] = Period(n, start_ic, end_ic, p_events)
         self.periods = periods
 
@@ -226,7 +225,7 @@ class Period:
 
     @property
     def ftallied(self):
-        return sum(map(lambda bf: bf.total_factors, self.barforms),
+        return sum((bf.total_factors for bf in  self.barforms),
                    Count.zero(parse_amount))
 
     @property
@@ -235,7 +234,7 @@ class Period:
 
     @property
     def fdelivered(self):
-        return sum(map(lambda dl: dl.total_factors, self.delivs),
+        return sum((dl.total_factors for dl in  self.delivs),
                    Count.zero(parse_amount))
 
 
@@ -368,7 +367,7 @@ class BarFormDir:
             self.barforms[bf.number] = bf
         if len(errors) > 0:
             warn("Failed to load some barforms: \n\t%s"
-                 % '\n\t'.join(map(repr, errors)))
+                 % '\n\t'.join(repr(x) for x in  errors))
 
     def _load_barform(self, fn, comps):
         number = comps[0]

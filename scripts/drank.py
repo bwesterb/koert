@@ -53,10 +53,10 @@ class Program:
             print(event.date)
             if event.invcount:
                 print("\tinvcount: %s" % (event.invcount,))
-            barforms = map(str, list(event.all_barforms))
+            barforms = [str(bf) for bf in event.all_barforms]
             if barforms:
                 print("\tbarforms: %s" % (', '.join(barforms),))
-            delivs = map(str, list(event.delivs))
+            delivs = [str(x) for x in ,event.delivs]
             if delivs:
                 print("\tdelivs: %s" % (', '.join(delivs),))
             print("")
