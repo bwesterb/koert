@@ -127,7 +127,7 @@ class TrNumsAreWellFormed(Verlet):
         length = None
         fails = []
         maxnum = 0
-        for num in self.v.book.trs_by_num.iterkeys():
+        for num in self.v.book.trs_by_num:
             if num is None or num == "":
                 continue
             if all([d in "0123456789" for d in num]):

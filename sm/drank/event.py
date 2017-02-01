@@ -96,7 +96,7 @@ class Event:
 
     @property
     def shifts(self):
-        return tuple(self.barforms.iterkeys())
+        return tuple(self.barforms)
 
     @property
     def beertank_turfed(self):
@@ -153,7 +153,7 @@ class EventDir:
                           "%s" % ar[0])
         count = Count.from_array(ar[1:], boozedir.eventdir,
                                  parse_amount)
-        for event in count.countlets.iterkeys():
+        for event in count.countlets:
             event.register_btc(count[event])
         return count
 

@@ -118,7 +118,7 @@ class Count:
     def __add__(self, other):
         countlets = {}
         for a in (self, other):
-            for obj in a.countlets.iterkeys():
+            for obj in a.countlets:
                 if obj not in countlets:
                     countlets[obj] = self.constr()
                 countlets[obj] += a[obj]
@@ -126,6 +126,6 @@ class Count:
 
     def __neg__(self):
         countlets = {}
-        for obj in self.countlets.iterkeys():
+        for obj in self.countlets:
             countlets[obj] = -self.countlets[obj]
         return Count(countlets, self.constr)

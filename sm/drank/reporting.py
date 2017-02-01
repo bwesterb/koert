@@ -48,7 +48,7 @@ class EventReport:
                 " used=%s, turfed=%s" % (u, c)
 
     def _check_shifts(self):
-        for l in self.event.barforms.iterkeys():
+        for l in self.event.barforms:
             shifts = self.event.barforms[l].keys()
             barforms = self.event.barforms[l]
             for r in self._check_shifts_with_label(
@@ -84,7 +84,7 @@ class EventReport:
             bf.number, bf.date, bf.counter)
 
     def _check_shifts_bal(self):
-        for l in self.event.barforms.iterkeys():
+        for l in self.event.barforms:
             shifts = self.event.barforms[l].keys()
             barforms = self.event.barforms[l]
             for r in self._check_shifts_bal_with_label(

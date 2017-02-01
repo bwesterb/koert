@@ -45,7 +45,7 @@ class InDiff:
 
 
 def _dictDiffit(A, B, diff):
-    for k in A.iterkeys():
+    for k in A:
         a = A[k]
         if k in B:
             b = B[k]
@@ -54,7 +54,7 @@ def _dictDiffit(A, B, diff):
                 yield (k, a, b, d)
         else:
             yield (k, a, None, None)
-    for k in B.iterkeys():
+    for k in B:
         b = B[k]
         if k in A:
             # we've  already met A[k] before
