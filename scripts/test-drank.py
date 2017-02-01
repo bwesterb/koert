@@ -1,5 +1,7 @@
 import argparse
 
+from six.moves import range
+
 from koert.drank.boozedir import BoozeDir
 from koert.drank.reporting import EventReport
 
@@ -110,7 +112,7 @@ def check_barforms_numbering(args, bd, barforms, codes):
     print()
     print("Indeed, the following codes are not present: ")
     ics = set(intcodes)
-    for i in xrange(m, M + 1):
+    for i in range(m, M + 1):
         if i not in ics:
             print("\t%s" % (str(i),))
 

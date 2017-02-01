@@ -1,6 +1,7 @@
 import itertools
 
 from pricelist import PriceListErr
+from six.moves import range
 
 
 class EventReport:
@@ -73,7 +74,7 @@ class EventReport:
         if m > 1:
             yield "first shift with label %s has number %s (%s)" \
                 % (l, m, barforms[m])
-        for i in xrange(m, M + 1):
+        for i in range(m, M + 1):
             if i in barforms:
                 continue
             yield "missing barform for shift %s/%s" % (l, i)

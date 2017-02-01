@@ -5,6 +5,7 @@ from common import (DoubleErr, LoadErr, ManyMildErrs, MildErr, ObjDirErr,
                     load_kwargs, parse_int)
 from count import Count
 from rikf import open_rikf_ar
+from six.moves import range
 
 
 class Factor:
@@ -44,7 +45,7 @@ class Product:
                              % (line,))
         handle, name = line[0:2]
         factors = {}
-        for i in xrange(2, len(line)):
+        for i in range(2, len(line)):
             field = line[i]
             if field == "":
                 break

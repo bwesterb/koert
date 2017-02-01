@@ -1,3 +1,5 @@
+from six.moves import range
+
 
 class Header:
 
@@ -35,9 +37,9 @@ class StringMatrix:
         maxs = map(lambda i: max([len(r[i]) for r in rows]),
                    range(len(example)))
         # Add padding to make the lengths equal
-        for i in xrange(len(rows)):
+        for i in range(len(rows)):
             row = rows[i]
-            for j in xrange(len(row)):
+            for j in range(len(row)):
                 row[j] += (maxs[j] - len(row[j])) * " "
 
     def format(self, col_sep="  ", row_sep="\n"):

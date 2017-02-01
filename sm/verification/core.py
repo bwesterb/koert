@@ -1,5 +1,6 @@
 import six
 from sarah.order import sort_by_successors
+from six.moves import range
 
 
 class Verifier(object):
@@ -154,7 +155,7 @@ class TrNumsAreContinuous(Verlet):
     def get_ok(self):
         tr_num_format = "%0" + str(self.v.tr_num_length) + "d"
         fails = []
-        for inum in xrange(1, self.v.max_tr_num + 1):
+        for inum in range(1, self.v.max_tr_num + 1):
             num = tr_num_format % inum
             if num not in self.v.book.trs_by_num:
                 fails.append(num)

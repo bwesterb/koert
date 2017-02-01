@@ -9,6 +9,7 @@ from common import (LoadErr, MildErr, Moment, ObjDirErr, parse_decimal,
                     parse_int, parse_moment, processFn)
 from count import Count
 from rikf import open_rikf_ar
+from six.moves import range
 
 
 class Shift:
@@ -172,7 +173,7 @@ class EventDir:
             self.periods = []
             return
         periods = [None] * N
-        for n in xrange(N):
+        for n in range(N):
             start_idx = idcs[n]
             end_idx = idcs[n + 1]
             start_ic = self.events[dates[start_idx]].invcount

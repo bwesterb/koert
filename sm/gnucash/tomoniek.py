@@ -1,4 +1,5 @@
 from moniek.accounting.entities import Amount, Entity, ecol
+import six
 
 
 class Push(object):

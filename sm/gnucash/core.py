@@ -2,6 +2,7 @@ import re
 from datetime import datetime
 
 import six
+from six.moves import range
 
 from koert.common.bintree import BinarySearchTree
 
@@ -288,7 +289,7 @@ class Book(GcObj):
         # There are three reasons M might be True; they follow below.
         # Along the way, we'll see if L happens to be False.
         #  (I)   n2[j+m] != 1 for some m>1
-        for k in xrange(j + 1, len(n2)):
+        for k in range(j + 1, len(n2)):
             if n2[k] == 1:
                 continue
             M = True
