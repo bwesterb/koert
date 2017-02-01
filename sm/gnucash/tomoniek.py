@@ -20,9 +20,9 @@ class Push(object):
 
     def push_book(self):
         self.push_account(self.book.root)
-        for tr in self.book.transactions.itervalues():
+        for tr in six.itervalues(self.book.transactions):
             self.push_transaction(tr)
-        for cm in self.book.commodities.itervalues():
+        for cm in six.itervalues(self.book.commodities):
             self.push_commodity(cm)
 
     def push_account(self, ac):
@@ -40,7 +40,7 @@ class Push(object):
         if ac.commodity:
             data["xgc"]["commodity_id"] = ac.commodity.id
         self.push_entity(data, ac.id)
-        for child in ac.children.itervalues():
+        for child in six.itervalues(ac.children):
             self.push_account(child)
 
     def push_transaction(self, tr):
@@ -55,7 +55,7 @@ class Push(object):
         if tr.currency:
             data['xgc']['currency_id'] = tr.currency.id
         self.push_entity(data, tr.id)
-        for sp in tr.splits.itervalues():
+        for sp in six.itervalues(tr.splits):
             self.push_split(sp, tr)
 
     def push_split(self, sp, tr):

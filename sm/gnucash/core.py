@@ -1,6 +1,8 @@
 import re
 from datetime import datetime
 
+import six
+
 from koert.common.bintree import BinarySearchTree
 
 
@@ -52,11 +54,11 @@ class Book(GcObj):
             self._apply_scheme()
 
     def _set_account_refs(self):
-        for ac in self.accounts.itervalues():
+        for ac in six.itervalues(self.accounts):
             self._handle_account(ac)
         if self.root is None:
             raise ValueError("book %s has no root account." % self)
-        for tr in self.transactions.itervalues():
+        for tr in six.itervalues(self.transactions):
             self._handle_transaction(tr)
 
     def _handle_account(self, ac):
@@ -74,7 +76,7 @@ class Book(GcObj):
                              "but it is not the root account" % ac)
 
     def _handle_transaction(self, tr):
-        for sp in tr.splits.itervalues():
+        for sp in six.itervalues(tr.splits):
             self._handle_split(sp, tr)
 
     def _handle_split(self, sp, tr):
@@ -97,7 +99,7 @@ class Book(GcObj):
         while(len(todo) > 0):
             ac = todo.pop()
             self._apply_scheme_ac(ac)
-            todo.extend(ac.children.itervalues())
+            todo.extend(six.itervalues(ac.children))
 
     def _apply_scheme_ac(self, ac):
         if ac.parent is not None and ac.parent._softref_kinds is not None:
@@ -136,7 +138,7 @@ class Book(GcObj):
 
     def _set_trs_by_num(self):
         res = {}
-        for tr in self.transactions.itervalues():
+        for tr in six.itervalues(self.transactions):
             num = tr.num
             if num not in res:
                 res[num] = ()
@@ -172,7 +174,7 @@ class Book(GcObj):
 
     def _set_trs_by_softref(self):
         res = {}
-        for tr in self.transactions.itervalues():
+        for tr in six.itervalues(self.transactions):
             for sr in tr.softrefs:
                 code = sr.code
                 if code not in res:
@@ -190,7 +192,7 @@ class Book(GcObj):
         res = {}
         for kind in Softref.kinds:
             res[kind] = BinarySearchTree()
-        for tr in self.transactions.itervalues():
+        for tr in six.itervalues(self.transactions):
             for sr in tr.softrefs:
                 res[sr.kind].insert(sr)
         self._softrefs_by_kind = res
@@ -416,7 +418,7 @@ class Account(GcObj):
         todo = [self]
         while len(todo) > 0:
             desc = todo.pop()
-            todo.extend(desc.children.itervalues())
+            todo.extend(six.itervalues(desc.children))
             yield desc
 
     def get_deep_mutations(self):

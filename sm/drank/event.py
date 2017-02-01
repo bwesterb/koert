@@ -3,6 +3,7 @@ from os import path as ospath
 from os import listdir
 from warnings import warn
 
+import six
 from amount import parse_amount
 from common import (LoadErr, MildErr, Moment, ObjDirErr, parse_decimal,
                     parse_int, parse_moment, processFn)
@@ -157,7 +158,7 @@ class EventDir:
         return count
 
     def get_in_interval(self, start, end):
-        for ev in self.events.itervalues():
+        for ev in six.itervalues(self.events):
             if start <= ev.date <= end:
                 yield ev
 
@@ -212,13 +213,13 @@ class Period:
 
     @property
     def barforms(self):
-        for event in self.events.itervalues():
+        for event in six.itervalues(self.events):
             for bf in event.all_barforms:
                 yield bf
 
     @property
     def delivs(self):
-        for event in self.events.itervalues():
+        for event in six.itervalues(self.events):
             for dl in event.delivs:
                 yield dl
 
@@ -562,12 +563,12 @@ class DelivDir:
         return self.delivs[code]
 
     def __iter__(self):
-        return iter(self.delivs.itervalues())
+        return six.itervalues(self.delivs)
 
     @property
     def total_factors(self):
         if self._total_factors is None:
             self._total_factors = sum([bf.total_factors
-                                       for bf in self.delivs.itervalues()],
+                                       for bf in six.itervalues(self.delivs)],
                                       Count.zero(parse_amount))
         return self._total_factors

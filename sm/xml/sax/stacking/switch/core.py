@@ -1,3 +1,4 @@
+import six
 from cases import No as NoCase
 
 from koert.xml.sax.stacking.core import SH
@@ -13,7 +14,7 @@ class SwitchSH(SH):
         self.init_child_results()
 
     def init_child_results(self):
-        for case in self.cases.itervalues():
+        for case in six.itervalues(self.cases):
             case.init(self.child_results)
 
     def get_case(self, name):
@@ -32,7 +33,7 @@ class SwitchSH(SH):
         case.apply_result(spawned_handler.result, self.child_results)
 
     def goodbye(self, sh):
-        for case in self.cases.itervalues():
+        for case in six.itervalues(self.cases):
             case.final(self.child_results)
         self.post_result(sh, self.child_results)
 

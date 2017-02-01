@@ -1,6 +1,8 @@
 import argparse
 from datetime import datetime
 
+import six
+
 from koert.drank.boozedir import BoozeDir
 from koert.format.table import Header, Table
 
@@ -103,7 +105,7 @@ class Program:
             print(t.format())
 
     def income(self):
-        factors = self.bd.factordir.factors.itervalues()
+        factors = six.itervalues(self.bd.factordir.factors)
         barf = self.bd.barformdir.total_factors
         deliv = self.bd.delivdir.total_factors
         _format = "%30s %8s %8s %8s %5s"

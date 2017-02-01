@@ -1,3 +1,4 @@
+import six
 from sarah.order import sort_by_successors
 
 
@@ -169,7 +170,7 @@ class AcMutThenNoSplit(Verlet):
 
     def get_ok(self):
         fails = []
-        for ac in self.v.book.accounts.itervalues():
+        for ac in six.itervalues(self.v.book.accounts):
             if len(ac.children) == 0:
                 continue
             if len(ac.mutations) > 0:
@@ -185,7 +186,7 @@ class TrMutAc(Verlet):
 
     def get_ok(self):
         fails = []
-        for tr in self.v.book.transactions.itervalues():
+        for tr in six.itervalues(self.v.book.transactions):
             if len(tr.splits) == 0:
                 fails.append(tr)
         if len(fails) > 0:
@@ -199,8 +200,8 @@ class SpNonZero(Verlet):
 
     def get_ok(self):
         fails = []
-        for tr in self.v.book.transactions.itervalues():
-            for sp in tr.splits.itervalues():
+        for tr in six.itervalues(self.v.book.transactions):
+            for sp in six.itervalues(tr.splits):
                 if sp.value == 0:
                     fails.append(sp)
         if len(fails) > 0:
@@ -214,7 +215,7 @@ class TrHaveFin7Softref(Verlet):
 
     def get_ok(self):
         fails = []
-        for ac in self.v.book.accounts.itervalues():
+        for ac in six.itervalues(self.v.book.accounts):
             fails.extend(self.get_ok_ac(ac))
         if len(fails) > 0:
             self.issues.append("%s do not" % (tuple(fails),))
@@ -238,7 +239,7 @@ class TrSoftrefsAreFin7Proper(Verlet):
 
     def get_ok(self):
         fails = []
-        for tr in self.v.book.transactions.itervalues():
+        for tr in six.itervalues(self.v.book.transactions):
             fails.extend(self.get_ok_tr(tr))
         if len(fails) > 0:
             self.issues.append("%s do" % (tuple(fails),))
@@ -251,5 +252,5 @@ class TrSoftrefsAreFin7Proper(Verlet):
                 continue
             allowed_acs = absk[sr.kind]
             if all([(sp.account.path not in allowed_acs)
-                    for sp in tr.splits.itervalues()]):
+                    for sp in six.itervalues(tr.splits)]):
                 yield tr
