@@ -1,8 +1,8 @@
 import os.path
 import sys
 
-from koert.gnucash.diff import (DictDiff, EqDiff, GcStructDiff, InDiff,
-                                ShallowGcStructDiff)
+from koert.gnucash.diff import GcStructDiff
+                                
 from koert.gnucash.tools import open_gcf
 from koert.verification.fin7scheme import scheme
 

@@ -3,7 +3,7 @@ from os import listdir
 from warnings import warn
 
 from amount import parse_amount
-from common import LoadErr, MildErr, ObjDirErr, parse_decimal, processFn
+from common import LoadErr, MildErr, ObjDirErr, processFn
 from count import Count
 from rikf import open_rikf_ar
 

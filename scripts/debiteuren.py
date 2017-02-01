@@ -1,9 +1,6 @@
 #!/usr/bin/python
 import argparse
-import sys
-from time import mktime, strptime
 
-from koert.gnucash.balance import get_balance_at, get_flow, get_opening_balance
 from koert.gnucash.export import get_debitors, get_user_balance
 from koert.gnucash.tools import open_gcf
 

@@ -1,4 +1,3 @@
-import moniek.env
 from moniek.accounting.entities import Amount, Entity, ecol
 
 

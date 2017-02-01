@@ -1,6 +1,4 @@
 import argparse
-import sys
-from time import mktime, strptime
 
 from koert.gnucash.core import Softref
 from koert.gnucash.tools import open_gcf

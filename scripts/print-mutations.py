@@ -1,8 +1,5 @@
 import argparse
-import sys
-from time import mktime, strptime
 
-from koert.gnucash.balance import get_balance_at, get_opening_balance
 from koert.gnucash.tools import open_gcf
 from koert.verification.fin7scheme import scheme
 

@@ -4,7 +4,6 @@ from koert.xml.sax.stacking import (CharactersSH, FractionSH, IntSH,
                                     StackingHandler, TimeSH)
 from koert.xml.sax.stacking.switch import SwitchSH
 from koert.xml.sax.stacking.switch.cases import Dict as DictCase
-from koert.xml.sax.stacking.switch.cases import List as ListCase
 from koert.xml.sax.stacking.switch.cases import No as NoCase
 from koert.xml.sax.stacking.switch.cases import Single as SingleCase
 

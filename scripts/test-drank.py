@@ -1,7 +1,4 @@
 import argparse
-import os
-import sys
-from datetime import date
 
 from koert.drank.boozedir import BoozeDir
 from koert.drank.reporting import EventReport
