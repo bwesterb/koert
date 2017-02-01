@@ -93,7 +93,6 @@ class EventReport:
                 yield r
 
     def _check_shifts_bal_with_label(self, l, shifts, barforms):
-        event = self.event
         for i in shifts:
             if i is None:
                 continue

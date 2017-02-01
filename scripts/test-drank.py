@@ -60,7 +60,6 @@ def check_pricelists(args, bd):
 
 
 def check_events(args, bd):
-    pls = bd.pricelistdir.pricelists.values()
     print("")
     print(' -  --   ---     Checking Events     ---   --  - ')
     print("")

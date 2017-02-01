@@ -74,6 +74,6 @@ def get_debitors(book, creditors_account, debitors_account):
 
     result.sort(key=lambda x: -x[1])
 
-    result = [(name, str(value)) for (name, value) in result]
+    result = [(name, str(val)) for (name, val) in result]
 
     return result

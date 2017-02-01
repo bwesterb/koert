@@ -14,7 +14,6 @@ def main(argv):
         print("please provide a path to a gnucash file as argument.")
         return
     gcf = open_gcf(path, scheme)
-    book = gcf.fields['books'].values()[0]
     v = Verifier(gcf)
     res = v.verify(TrsHaveNum, TrNumsAreWellFormed,
                    TrNumsAreContinuous,
