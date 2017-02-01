@@ -45,7 +45,7 @@ def get_opening_balance(book, obaccount):
     return get_flow(book, _from=obaccount)
 
 
-################ INTERNALS ####################################################
+# ############### INTERNALS ###################################################
 
 def tr_in_period(tr, begin, end):
     if end and tr.date_posted.date > end:

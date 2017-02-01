@@ -50,11 +50,10 @@ def check_pricelists(args, bd):
         print("The following pricelist miss some products:")
         print("")
         for pl in missing:
-            _cmp = lambda p, q: cmp(p.handle, q.handle)
-            missing[pl].sort(cmp=_cmp)
+            missing[pl].sort(key=lambda x: x.handle)
             print("%s" % (pl,))
             print("")
-            print(", ".join(str(x) for x in  missing[pl]))
+            print(", ".join(str(x) for x in missing[pl]))
             print("")
         print("")
         print("")
@@ -67,8 +66,7 @@ def check_events(args, bd):
     print("")
     print("")
     dates = bd.eventdir.events.keys()
-    _cmp = lambda x, y: 1 if x is None else -1 if y is None else cmp(x, y)
-    dates.sort(cmp=_cmp)
+    dates.sort(key=lambda x: (x is None, x))
     for date in dates:
         event = bd.eventdir.events[date]
         tags = set()

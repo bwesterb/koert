@@ -225,7 +225,7 @@ class Period:
 
     @property
     def ftallied(self):
-        return sum((bf.total_factors for bf in  self.barforms),
+        return sum((bf.total_factors for bf in self.barforms),
                    Count.zero(parse_amount))
 
     @property
@@ -234,7 +234,7 @@ class Period:
 
     @property
     def fdelivered(self):
-        return sum((dl.total_factors for dl in  self.delivs),
+        return sum((dl.total_factors for dl in self.delivs),
                    Count.zero(parse_amount))
 
 
@@ -367,7 +367,7 @@ class BarFormDir:
             self.barforms[bf.number] = bf
         if len(errors) > 0:
             warn("Failed to load some barforms: \n\t%s"
-                 % '\n\t'.join(repr(x) for x in  errors))
+                 % '\n\t'.join(repr(x) for x in errors))
 
     def _load_barform(self, fn, comps):
         number = comps[0]

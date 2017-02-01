@@ -20,5 +20,6 @@ def main():
     for mut in ac.get_descendants_mutations():
         print(repr(mut))
 
+
 if __name__ == "__main__":
     main()

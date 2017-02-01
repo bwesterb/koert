@@ -25,5 +25,6 @@ def main(argv):
         print(res[fact])
         print("")
 
+
 if __name__ == "__main__":
     main(sys.argv)

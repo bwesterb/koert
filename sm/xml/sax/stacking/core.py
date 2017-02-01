@@ -130,6 +130,7 @@ class CharactersSH(SH):
         self.result = None
         return True
 
+
 # todo: parse offset; unfortunately, time.strptime does not support
 #       the %z directive
 time_format = "%Y-%m-%d %H:%M:%S"

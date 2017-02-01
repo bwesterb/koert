@@ -56,7 +56,7 @@ class Program:
             barforms = [str(bf) for bf in event.all_barforms]
             if barforms:
                 print("\tbarforms: %s" % (', '.join(barforms),))
-            delivs = [str(x) for x in ,event.delivs]
+            delivs = [str(x) for x in event.delivs]
             if delivs:
                 print("\tdelivs: %s" % (', '.join(delivs),))
             print("")
@@ -66,8 +66,7 @@ class Program:
         # Sort factors by mililiters; which is a bit silly
         barf = self.bd.barformdir.total_factors
         deliv = self.bd.delivdir.total_factors
-        rank = lambda f: -max(barf.get(f, 0), deliv.get(f, 0))
-        factors.sort(key=rank)
+        factors.sort(key=lambda f: -max(barf.get(f, 0), deliv.get(f, 0)))
 
         periods = self.bd.eventdir.periods
         t = Table([Header("#", lambda p: str(p.number)),
@@ -85,14 +84,9 @@ class Program:
             ft = p.ftallied
             fd = p.fdelivered
             fg = p.fdiff
-            get_data_tuple = lambda f: (
-                f, ft.get(
-                    f, 0), fd.get(
-                    f, 0), fg.get(
-                    f, 0))
-            dt_not_trivial = lambda t: not (t[1] == t[2] == t[3] == 0)
-            rows = filter(dt_not_trivial,
-                          [get_data_tuple(f) for f in factors])
+            rows = [(f, ft.get(f, 0), fd.get(f, 0), fg.get(f, 0))
+                    for f in factors
+                    if not (t[1] == t[2] == t[3] == 0)]
             t = Table([Header("factor", lambda d: d[0].handle),
                        Header("tallied", lambda d: str(d[1])),
                        Header("deliv", lambda d: str(d[2])),
@@ -119,6 +113,7 @@ class Program:
             if fb:
                 perc = "%.0f" % ((fd - fb) / fb * 100,)
             print(_format % (f.handle, fb, fd, fd - fb, perc))
+
 
 if __name__ == "__main__":
     Program()

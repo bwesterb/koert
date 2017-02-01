@@ -76,9 +76,9 @@ class BinarySearchTree(object):
         self._sort_key = sort_key
         self._len = 0  # keep track of how many items we contain.
 
-    #/////////////////////////////////////////////////////////////////
+    # /////////////////////////////////////////////////////////////////
     # Public Methods
-    #/////////////////////////////////////////////////////////////////
+    # /////////////////////////////////////////////////////////////////
 
     def insert(self, value, only_if_not_present=False):
         """
@@ -192,9 +192,9 @@ class BinarySearchTree(object):
         else:
             return '\n'.join(lines)
 
-    #/////////////////////////////////////////////////////////////////
+    # /////////////////////////////////////////////////////////////////
     # Private Helper Methods
-    #/////////////////////////////////////////////////////////////////
+    # /////////////////////////////////////////////////////////////////
 
     def _extreme_node(self, side):
         """
@@ -299,12 +299,14 @@ class BinarySearchTree(object):
                 top_lines += [indent + ' ' + line for line in t]
                 top_lines.append(indent + '/' + m)
                 top_lines += [' ' * (len(b) - i + spacer - 1) + '/' +
-                              ' ' * (i + 1) + line for (i, line) in enumerate(b)]
+                              ' ' * (i + 1) + line
+                              for (i, line) in enumerate(b)]
             if node[_RIGHT]:
                 t, m, b = self._pprint(node[_RIGHT], max_depth - 1,
                                        show_key, spacer)
                 indent = ' ' * (len(t) + spacer)
-                bot_lines += [' ' * (i + spacer) + '\\' + ' ' * (len(t) - i) + line
+                bot_lines += [' ' * (i + spacer) + '\\' +
+                              ' ' * (len(t) - i) + line
                               for (i, line) in enumerate(t)]
                 bot_lines.append(indent + '\\' + m)
                 bot_lines += [indent + ' ' + line for line in b]

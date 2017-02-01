@@ -24,12 +24,17 @@ def main():
     book = gcf.fields['books'].values()[0]
 
     if args.name is not None:
-        print(get_user_balance(book,
-                               args.creditors_account + ":" + args.name,
-                               args.debitors_account + ":" + args.name)['mutations'])
+        print(get_user_balance(
+            book,
+            args.creditors_account + ":" + args.name,
+            args.debitors_account + ":" + args.name
+        )['mutations'])
     else:
-        print(get_debitors(book,
-                           args.creditors_account, args.debitors_account))
+        print(get_debitors(
+            book,
+            args.creditors_account,
+            args.debitors_account
+        ))
 
 
 if __name__ == "__main__":

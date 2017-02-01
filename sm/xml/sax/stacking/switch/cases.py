@@ -81,4 +81,6 @@ class No(Base):
 
     def final(self, cr):
         pass
+
+
 No = No()

@@ -8,9 +8,9 @@ from koert.verification.fin7scheme import scheme
 
 def main():
     if len(sys.argv) != 3:
-        print("Please provide (1) a path to the gnucash file" \
-            " and (2) a path to another gnucash file" \
-            " to compare it with.")
+        print("Please provide (1) a path to the gnucash file"
+              " and (2) a path to another gnucash file"
+              " to compare it with.")
         return
 
     cmd, path_a, path_b = sys.argv
@@ -43,6 +43,7 @@ def main():
     print(GcStructDiff(A, B))
     print("")
     print("done.")
+
 
 if __name__ == "__main__":
     main()

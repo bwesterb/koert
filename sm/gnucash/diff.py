@@ -153,6 +153,8 @@ def LutedDiff(diff):
 
 def ShallowGcStructDiff(diff):
     return LutedDiff(lambda a, b: DeepDictDiff(diff)(a.fields, b.fields))
+
+
 GcStructDiff = DeepDiff(
     ShallowGcStructDiff,
     EqDiff,
