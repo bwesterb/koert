@@ -19,7 +19,7 @@ class SwitchSH(SH):
     def get_case(self, name):
         if name in self.cases:
             return self.cases[name]
-        print "warning:  unexpected node-name %s" % name
+        print("warning:  unexpected node-name %s" % name)
         return self.default
 
     def startElement(self, sh, name, attrs):

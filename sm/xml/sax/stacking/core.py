@@ -177,8 +177,8 @@ class PrintSH(SH):
         SH.__init__(self, ot)
 
     def startElement(self, sh, name, attrs):
-        print " " * sh.current_depth + name
+        print(" " * sh.current_depth + name)
         return None
 
     def endElement(self, sh, name, spawned_handler):
-        print " " * sh.current_depth + name
+        print(" " * sh.current_depth + name)

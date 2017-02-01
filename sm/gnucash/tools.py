@@ -75,7 +75,7 @@ def load_cache(cachepath, mtime):
             cached_commit_name, gcf = cPickle.load(f)
             if cached_commit_name != current_commit_name:
                 return False
-            print "loaded cache %s" % cachepath
+            print("loaded cache %s" % cachepath)
             return gcf
         except Exception as e:
             warn("Failed to load pickled cache of Gnucash file "

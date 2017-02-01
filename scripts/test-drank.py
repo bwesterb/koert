@@ -31,12 +31,12 @@ def main():
 def check_pricelists(args, bd):
     pls = bd.pricelistdir.pricelists.values()
     cms = bd.commoditydir.commodities.values()
-    print ""
-    print ' -  --   ---     Checking Pricelists     ---   --  - '
-    print ""
-    print "   found pricelists: %s" % ", ".join(map(str, pls))
-    print ""
-    print ""
+    print("")
+    print(' -  --   ---     Checking Pricelists     ---   --  - ')
+    print("")
+    print("   found pricelists: %s" % ", ".join(map(str, pls)))
+    print("")
+    print("")
 
     missing = {}
     for c in cms:
@@ -47,26 +47,26 @@ def check_pricelists(args, bd):
             missing[pl] = []
         missing[pl].append(c.product)
     if missing:
-        print "__________________________________________"
-        print "The following pricelist miss some products:"
-        print ""
+        print("__________________________________________")
+        print("The following pricelist miss some products:")
+        print("")
         for pl in missing:
             _cmp = lambda p, q: cmp(p.handle, q.handle)
             missing[pl].sort(cmp=_cmp)
-            print "%s" % (pl,)
-            print ""
-            print ", ".join(map(str, missing[pl]))
-            print ""
-        print ""
-        print ""
+            print("%s" % (pl,))
+            print("")
+            print(", ".join(map(str, missing[pl])))
+            print("")
+        print("")
+        print("")
 
 
 def check_events(args, bd):
     pls = bd.pricelistdir.pricelists.values()
-    print ""
-    print ' -  --   ---     Checking Events     ---   --  - '
-    print ""
-    print ""
+    print("")
+    print(' -  --   ---     Checking Events     ---   --  - ')
+    print("")
+    print("")
     dates = bd.eventdir.events.keys()
     _cmp = lambda x, y: 1 if x is None else -1 if y is None else cmp(x, y)
     dates.sort(cmp=_cmp)
@@ -83,17 +83,17 @@ def check_events(args, bd):
             tags.add("barform")
         if event.invcount:
             tags.add("invcount")
-        print "event on %s (%s):" % (event.date,
-                                     ', '.join(tags))
+        print("event on %s (%s):" % (event.date,
+                                     ', '.join(tags)))
         for line in EventReport(event, bd).generate():
-            print "\t* " + line
+            print("\t* " + line)
 
 
 def check_barforms(args, bd):
-    print ""
-    print ' -  --   ---     Checking Barforms     ---   --  - '
-    print ""
-    print ""
+    print("")
+    print(' -  --   ---     Checking Barforms     ---   --  - ')
+    print("")
+    print("")
     barforms = bd.barformdir.barforms
     codes = barforms.keys()
     check_barforms_numbering(args, bd, barforms, codes)
@@ -103,19 +103,19 @@ def check_barforms_numbering(args, bd, barforms, codes):
     intcodes = map(int, barforms.keys())
     m = min(intcodes)
     M = max(intcodes)
-    print "Codes range from %s to %s." % (m, M)
+    print("Codes range from %s to %s." % (m, M))
     if len(intcodes) == M + 1 - m:
-        print "No barforms seem to be missing."
+        print("No barforms seem to be missing.")
         return
-    print "Some barforms are missing:"
-    print "\tOne expects %s barforms in total" % (M + 1 - m,)
-    print "\tbut there are only %s barforms." % (len(intcodes),)
-    print
-    print "Indeed, the following codes are not present: "
+    print("Some barforms are missing:")
+    print("\tOne expects %s barforms in total" % (M + 1 - m,))
+    print("\tbut there are only %s barforms." % (len(intcodes),))
+    print()
+    print("Indeed, the following codes are not present: ")
     ics = set(intcodes)
     for i in xrange(m, M + 1):
         if i not in ics:
-            print "\t%s" % (str(i),)
+            print("\t%s" % (str(i),))
 
 
 TESTS = {

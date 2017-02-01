@@ -38,7 +38,7 @@ class Program:
 
     def log(self, level, text, *args):
         if self.args.verbose >= level:
-            print (text % args)
+            print((text % args))
 
     def set_bd(self):
         self.log(1, "  loading Boozedir ...")
@@ -51,16 +51,16 @@ class Program:
         dates = sorted(self.bd.eventdir.events.keys())
         for d in dates:
             event = self.bd.eventdir.events[d]
-            print event.date
+            print(event.date)
             if event.invcount:
-                print "\tinvcount: %s" % (event.invcount,)
+                print("\tinvcount: %s" % (event.invcount,))
             barforms = map(str, list(event.all_barforms))
             if barforms:
-                print "\tbarforms: %s" % (', '.join(barforms),)
+                print("\tbarforms: %s" % (', '.join(barforms),))
             delivs = map(str, list(event.delivs))
             if delivs:
-                print "\tdelivs: %s" % (', '.join(delivs),)
-            print ""
+                print("\tdelivs: %s" % (', '.join(delivs),))
+            print("")
 
     def income_periods(self):
         factors = self.bd.factordir.factors.values()
@@ -77,11 +77,11 @@ class Program:
                    Header("#bf", lambda p: str(len(tuple(p.barforms)))),
                    Header("#dl", lambda p: str(len(tuple(p.delivs))))],
                   periods)
-        print "The periods are:"
-        print ""
-        print t.format()
-        print ""
-        print ""
+        print("The periods are:")
+        print("")
+        print(t.format())
+        print("")
+        print("")
         for p in periods:
             ft = p.ftallied
             fd = p.fdelivered
@@ -100,10 +100,10 @@ class Program:
                        Header("result", lambda d: str(d[2] - d[1])),
                        Header("diff", lambda d: "%.0f" % d[3])],
                       rows)
-            print ""
-            print ""
-            print p
-            print t.format()
+            print("")
+            print("")
+            print(p)
+            print(t.format())
 
     def income(self):
         factors = self.bd.factordir.factors.itervalues()
@@ -111,15 +111,15 @@ class Program:
         deliv = self.bd.delivdir.total_factors
         _format = "%30s %8s %8s %8s %5s"
 
-        print _format % ("FACTOR", "GETURFT",
-                         "GEKOCHT", "RESULTAAT", "%TRF")
+        print(_format % ("FACTOR", "GETURFT",
+                         "GEKOCHT", "RESULTAAT", "%TRF"))
         for f in factors:
             fb = barf.get(f, 0)
             fd = deliv.get(f, 0)
             perc = "--"
             if fb:
                 perc = "%.0f" % ((fd - fb) / fb * 100,)
-            print _format % (f.handle, fb, fd, fd - fb, perc)
+            print(_format % (f.handle, fb, fd, fd - fb, perc))
 
 if __name__ == "__main__":
     Program()

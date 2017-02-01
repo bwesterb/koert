@@ -24,32 +24,32 @@ class Program:
         self.book = self.gcf.book
         for kind in Softref.kinds:
             self.print_by_kind(kind)
-            print ""
-            print ""
+            print("")
+            print("")
 
     def print_by_kind(self, kind):
-        print " ___ %4s ___ " % kind
-        print ""
-        print "MISSING:"
+        print(" ___ %4s ___ " % kind)
+        print("")
+        print("MISSING:")
         missing = self.book.missing_softrefs_by_kind[kind]
         if len(missing) == 0:
-            print "\tnone"
+            print("\tnone")
         for a, b in missing:
-            print "\t%s--%s" % (a.number_str, b.number_str)
-        print ""
-        print "MINIMA:"
+            print("\t%s--%s" % (a.number_str, b.number_str))
+        print("")
+        print("MINIMA:")
         minimums = self.book.minimum_softrefs_by_kind[kind]
         if len(minimums) == 0:
-            print "\tnone"
+            print("\tnone")
         for m in minimums:
-            print "\t%s" % m.number_str
-        print ""
-        print "MAXIMA:"
+            print("\t%s" % m.number_str)
+        print("")
+        print("MAXIMA:")
         maximums = self.book.maximum_softrefs_by_kind[kind]
         if len(maximums) == 0:
-            print "\tnone"
+            print("\tnone")
         for m in maximums:
-            print "\t%s" % m.number_str
+            print("\t%s" % m.number_str)
 
 
 if __name__ == "__main__":

@@ -84,7 +84,7 @@ class Book(GcObj):
 
     def _handle_root_ac(self, ac):
         if ac.type != 'ROOT':
-            print ac.fields
+            print(ac.fields)
             raise ValueError("%s has no parent, but is not "
                              "of type ROOT" % ac)
         if self._root is not None:

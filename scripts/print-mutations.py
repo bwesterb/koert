@@ -21,7 +21,7 @@ def main():
     book = gcf.book
     ac = book.ac_by_path(args.account)
     for mut in ac.get_descendants_mutations():
-        print repr(mut)
+        print(repr(mut))
 
 if __name__ == "__main__":
     main()

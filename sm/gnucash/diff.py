@@ -166,10 +166,10 @@ GcStructDiff = DeepDiff(
         GcStruct))
 
 if __name__ == "__main__":
-    print " *** Testing koert.gnucash.diff ***"
-    print ""
+    print(" *** Testing koert.gnucash.diff ***")
+    print("")
     dl1 = {"a": {1: "same", 2: "something", 3: "new"}, "b": 2, "q": 13}
     dl2 = {"a": {1: "same", 2: "other", 4: "new2"}, "b": 3, "c": 2}
-    print "A: %s" % (dl1,)
-    print "B: %s" % (dl2,)
-    print "  difference:  %s" % (DeepDictDiff(EqDiff)(dl1, dl2),)
+    print("A: %s" % (dl1,))
+    print("B: %s" % (dl2,))
+    print("  difference:  %s" % (DeepDictDiff(EqDiff)(dl1, dl2),))

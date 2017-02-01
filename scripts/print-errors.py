@@ -11,7 +11,7 @@ from koert.verification.fin7scheme import scheme
 def main(argv):
     path = " ".join(argv[1:]).strip()
     if not path:
-        print "please provide a path to a gnucash file as argument."
+        print("please provide a path to a gnucash file as argument.")
         return
     gcf = open_gcf(path, scheme)
     book = gcf.fields['books'].values()[0]
@@ -21,9 +21,9 @@ def main(argv):
                    AcMutThenNoSplit, TrMutAc, SpNonZero,
                    TrHaveFin7Softref)
     for fact in res:
-        print fact
-        print res[fact]
-        print ""
+        print(fact)
+        print(res[fact])
+        print("")
 
 if __name__ == "__main__":
     main(sys.argv)
