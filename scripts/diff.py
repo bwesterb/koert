@@ -1,9 +1,10 @@
-from koert.gnucash.tools import open_gcf
-from koert.gnucash.diff import ShallowGcStructDiff, \
-    GcStructDiff, DictDiff, EqDiff, InDiff
-from koert.verification.fin7scheme import scheme
 import os.path
 import sys
+
+from koert.gnucash.diff import (DictDiff, EqDiff, GcStructDiff, InDiff,
+                                ShallowGcStructDiff)
+from koert.gnucash.tools import open_gcf
+from koert.verification.fin7scheme import scheme
 
 
 def main():

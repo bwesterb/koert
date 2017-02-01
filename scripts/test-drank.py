@@ -1,9 +1,10 @@
+import argparse
+import os
+import sys
+from datetime import date
+
 from koert.drank.boozedir import BoozeDir
 from koert.drank.reporting import EventReport
-from datetime import date
-import sys
-import os
-import argparse
 
 TESTS = None
 

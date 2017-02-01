@@ -1,6 +1,6 @@
-from xml.sax.handler import ContentHandler as SaxHandler
-from decimal import Decimal
 import time
+from decimal import Decimal
+from xml.sax.handler import ContentHandler as SaxHandler
 
 
 class StackingHandler(SaxHandler):

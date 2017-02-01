@@ -1,14 +1,15 @@
-from rikf import open_rikf_ar
-from count import Count
-from common import MildErr, ManyMildErrs, ObjDirErr, LoadErr, DoubleErr,\
-    parse_int, load_kwargs
-from event import EventDir
-from amount import parse_amount
-
 import datetime
-from os import listdir, path as ospath
 import decimal
+from os import path as ospath
+from os import listdir
 from warnings import warn
+
+from amount import parse_amount
+from common import (DoubleErr, LoadErr, ManyMildErrs, MildErr, ObjDirErr,
+                    load_kwargs, parse_int)
+from count import Count
+from event import EventDir
+from rikf import open_rikf_ar
 
 
 class Factor:

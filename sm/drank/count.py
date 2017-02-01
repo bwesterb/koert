@@ -1,4 +1,5 @@
-from common import MildErr, ManyMildErrs, ObjDirErr
+from common import ManyMildErrs, MildErr, ObjDirErr
+
 
 # raised when the string representation of a countlet
 # has a white object name.

@@ -1,5 +1,6 @@
-from koert.xml.sax.stacking.core import SH
 from cases import No as NoCase
+
+from koert.xml.sax.stacking.core import SH
 
 
 class SwitchSH(SH):

@@ -1,10 +1,12 @@
-from core import Book, Account, Transaction, Split, TimeStamp, File, \
-    Commodity
-from koert.xml.sax.stacking import StackingHandler, CharactersSH, TimeSH, \
-    IntSH, FractionSH
+from core import Account, Book, Commodity, File, Split, TimeStamp, Transaction
+
+from koert.xml.sax.stacking import (CharactersSH, FractionSH, IntSH,
+                                    StackingHandler, TimeSH)
 from koert.xml.sax.stacking.switch import SwitchSH
-from koert.xml.sax.stacking.switch.cases import List as ListCase, \
-    Dict as DictCase, Single as SingleCase, No as NoCase
+from koert.xml.sax.stacking.switch.cases import Dict as DictCase
+from koert.xml.sax.stacking.switch.cases import List as ListCase
+from koert.xml.sax.stacking.switch.cases import No as NoCase
+from koert.xml.sax.stacking.switch.cases import Single as SingleCase
 
 
 class SaxHandler(StackingHandler):

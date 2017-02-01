@@ -1,6 +1,7 @@
-from datetime import datetime
-from koert.common.bintree import BinarySearchTree
 import re
+from datetime import datetime
+
+from koert.common.bintree import BinarySearchTree
 
 
 class GcStruct(object):

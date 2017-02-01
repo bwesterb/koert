@@ -1,9 +1,10 @@
-from koert.gnucash.tools import open_gcf
-from koert.gnucash.core import Softref
-from time import mktime, strptime
-from koert.verification.fin7scheme import scheme
 import argparse
 import sys
+from time import mktime, strptime
+
+from koert.gnucash.core import Softref
+from koert.gnucash.tools import open_gcf
+from koert.verification.fin7scheme import scheme
 
 
 def parse_args():

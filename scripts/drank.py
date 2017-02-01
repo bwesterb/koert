@@ -1,10 +1,11 @@
+import argparse
+import os
+import sys
+from datetime import date, datetime
+
 from koert.drank.boozedir import BoozeDir
 from koert.drank.reporting import EventReport
-from koert.format.table import Table, Header
-from datetime import date, datetime
-import sys
-import os
-import argparse
+from koert.format.table import Header, Table
 
 
 def parse_args():

@@ -1,7 +1,8 @@
 # ad-hoc solution for parsing amounts in Counts
+from decimal import Decimal
+
 from common import MildErr
 
-from decimal import Decimal
 
 # parse the string representation  s  of an amount of the object  obj.
 

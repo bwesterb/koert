@@ -1,9 +1,9 @@
-from core import FactorDir, ProductDir
-from event import EventDir, InvCountDir, BarFormDir, DelivDir
-from pricelist import PriceListDir, CommodityDir
-from weight import WeightDir
-
 from os import path as ospath
+
+from core import FactorDir, ProductDir
+from event import BarFormDir, DelivDir, EventDir, InvCountDir
+from pricelist import CommodityDir, PriceListDir
+from weight import WeightDir
 
 
 class BoozeDir:

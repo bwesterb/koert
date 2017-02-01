@@ -1,11 +1,13 @@
-from koert.gnucash.xmlformat import SaxHandler
+import cPickle
 import gzip
 import os.path
-import cPickle
 import sys
-import yaml
+from subprocess import PIPE, Popen
 from warnings import warn
-from subprocess import Popen, PIPE
+
+import yaml
+
+from koert.gnucash.xmlformat import SaxHandler
 
 
 def open_gcf_in_git_repo(repopath, filepath, cachepath=None, scheme=None):

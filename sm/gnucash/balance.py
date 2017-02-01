@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+
 # Returns the transactions
 #       from    only this account (or its subaccounts) if specified
 # in the period

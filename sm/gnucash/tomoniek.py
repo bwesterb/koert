@@ -1,5 +1,5 @@
 import moniek.env
-from moniek.accounting.entities import Entity, ecol, Amount
+from moniek.accounting.entities import Amount, Entity, ecol
 
 
 class Push(object):

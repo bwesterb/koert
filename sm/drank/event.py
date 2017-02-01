@@ -1,15 +1,14 @@
-from common import MildErr, LoadErr, ObjDirErr,\
-    parse_int, parse_moment, parse_decimal, processFn,\
-    Moment
+import datetime
+from decimal import Decimal
+from os import path as ospath
+from os import listdir
+from warnings import warn
+
+from amount import parse_amount
+from common import (LoadErr, MildErr, Moment, ObjDirErr, parse_decimal,
+                    parse_int, parse_moment, processFn)
 from count import Count
 from rikf import open_rikf_ar
-from amount import parse_amount
-
-import datetime
-from os import listdir
-from os import path as ospath
-from warnings import warn
-from decimal import Decimal
 
 
 class Shift:

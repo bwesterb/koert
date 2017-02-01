@@ -1,12 +1,11 @@
-from common import MildErr, LoadErr, ObjDirErr,\
-    processFn, parse_decimal
+from os import path as ospath
+from os import listdir
+from warnings import warn
+
+from amount import parse_amount
+from common import LoadErr, MildErr, ObjDirErr, parse_decimal, processFn
 from count import Count
 from rikf import open_rikf_ar
-from amount import parse_amount
-
-from os import listdir
-from os import path as ospath
-from warnings import warn
 
 
 class PriceListErr(MildErr):

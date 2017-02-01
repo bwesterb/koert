@@ -1,1 +1,1 @@
-from core import StackingHandler, SH, CharactersSH, TimeSH, IntSH, FractionSH
+from core import SH, CharactersSH, FractionSH, IntSH, StackingHandler, TimeSH

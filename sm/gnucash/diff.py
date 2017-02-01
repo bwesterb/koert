@@ -1,5 +1,7 @@
-from core import GcStruct
 from itertools import chain
+
+from core import GcStruct
+
 
 # Some general code concerning "difference functions".
 # A *difference function*  diff  assigns to each pair A B of objects

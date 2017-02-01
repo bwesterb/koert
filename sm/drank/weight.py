@@ -1,7 +1,7 @@
+from decimal import Decimal
+
 from common import parse_int
 from rikf import open_rikf_ar
-
-from decimal import Decimal
 
 
 class WeightDir:
